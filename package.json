@@ -1,0 +1,33 @@
+{
+  "name": "fast.css",
+  "version": "1.0.0",
+  "description": "use for quick demo ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willhu85/fast.css.git"
+  },
+  "keywords": [
+    "css",
+    "fast",
+    "quick",
+    "demo"
+  ],
+  "author": "willhu85@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willhu85/fast.css/issues"
+  },
+  "homepage": "https://github.com/willhu85/fast.css#readme",
+  "devDependencies": {
+    "css-loader": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  }
+}
