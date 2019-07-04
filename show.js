@@ -1,3 +1,5 @@
-export default function show(content) {
-  window.document.getElementById("app").innerText = "hello" + content;
+function show(content) {
+  window.document.getElementById("app").innerText = "hello！" + content;
 }
+
+module.exports = show;
