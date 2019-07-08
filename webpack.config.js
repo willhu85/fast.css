@@ -16,9 +16,20 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
+        include: path.resolve(__dirname, "src")
+      },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "scss-loader"],
+        include: path.resolve(__dirname, "src")
       }
     ]
+  },
+  resolve: {
+    alias: {
+      show: "./show.js"
+    }
   },
   plugins: [
     new ExtractTextPlugin({
