@@ -1,16 +1,19 @@
-.dn {
-  display: none;
+.hidden,
+[hidden] {
+  display: none !important;
 }
-.di {
+.inline {
   display: inline;
 }
-.db {
+.block {
   display: block;
 }
-.dib {
+.inlineblock {
   display: inline-block;
 }
-div.dib {
-  *display: inline;
-  *zoom: 1;
-} /* other block level tag(eg. p, li, h1~h6), using 'inline_any' instead */
+
+.fast-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

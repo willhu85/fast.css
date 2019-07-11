@@ -1,0 +1,89 @@
+.fast-g {
+  letter-spacing: -1em; /* Webkit: collapse white-space between units */
+  *letter-spacing: normal; /* reset IE < 8 */
+  *word-spacing: -1em; /* IE < 8: collapse white-space between units */
+  text-rendering: optimizespeed; /* Webkit: fixes text-rendering: optimizeLegibility */
+  /*
+    * FreeSans: Ships with many Linux distros, including Ubuntu
+
+    * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+      Arial to get picked up by the browser, even though neither is available
+      in Chrome OS.
+
+    * Droid Sans: Ships with all versions of Android.
+
+    * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+    */
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+  /* Use flexbox when possible to avoid `letter-spacing` side-effects. */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  /* Prevents distributing space between rows */
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+/* IE10 display: -ms-flexbox (and display: flex in IE 11) does not work inside a table; fall back to block and rely on font hack */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  table .fast-g {
+    display: block;
+  }
+}
+
+.fast-u {
+  display: inline-block;
+  *display: inline; /* IE < 8: fake inline-block */
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+
+/*
+Resets the font family back to the OS/browser's default sans-serif font,
+this the same font stack that Normalize.css sets for the `body`.
+*/
+
+.fast-g [class*="fast-u"] {
+  font-family: sans-serif;
+}
+
+$grid-count: (1, 2, 3, 5, 8, 12, 24);
+
+%grid {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  letter-spacing: normal;
+  word-spacing: normal;
+  vertical-align: top;
+  text-rendering: auto;
+}
+
+@each $i in $grid-count {
+  @for $j from 1 through $i {
+    // $count: "";
+    // @if $i = $j {
+    //   @if $i = 1 {
+    //     $count: 1;
+    //   } @else {
+    //     $count: $i;
+    //   }
+    // } @else {
+    //   $count: #{$j}-#{$i};
+    // }
+    .fast-u-#{$j}-#{$i} {
+      @extend %grid;
+      width: round(($j / $i) * 10000) / 10000;
+      *width: round(($j / $i) * 10000) / 10000;
+    }
+  }
+}
