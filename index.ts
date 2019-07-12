@@ -1,4 +1,4 @@
 require("./src/fast.scss");
-import { show } from "./show";
+import { grid } from "./grid";
 
-show("webpack");
+grid();

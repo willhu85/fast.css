@@ -1,4 +1,4 @@
-.fast-g {
+.row {
   letter-spacing: -1em; /* Webkit: collapse white-space between units */
   *letter-spacing: normal; /* reset IE < 8 */
   *word-spacing: -1em; /* IE < 8: collapse white-space between units */
@@ -32,12 +32,12 @@
 
 /* IE10 display: -ms-flexbox (and display: flex in IE 11) does not work inside a table; fall back to block and rely on font hack */
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  table .fast-g {
+  table .row {
     display: block;
   }
 }
 
-.fast-u {
+.col {
   display: inline-block;
   *display: inline; /* IE < 8: fake inline-block */
   zoom: 1;
@@ -52,11 +52,11 @@ Resets the font family back to the OS/browser's default sans-serif font,
 this the same font stack that Normalize.css sets for the `body`.
 */
 
-.fast-g [class*="fast-u"] {
+.row [class*="col"] {
   font-family: sans-serif;
 }
 
-$grid-count: (1, 2, 3, 5, 8, 12, 24);
+$grid-count: (12, 24);
 
 %grid {
   display: inline-block;
@@ -70,20 +70,20 @@ $grid-count: (1, 2, 3, 5, 8, 12, 24);
 
 @each $i in $grid-count {
   @for $j from 1 through $i {
-    // $count: "";
-    // @if $i = $j {
-    //   @if $i = 1 {
-    //     $count: 1;
-    //   } @else {
-    //     $count: $i;
-    //   }
-    // } @else {
-    //   $count: #{$j}-#{$i};
-    // }
-    .fast-u-#{$j}-#{$i} {
+    .col-#{$j}-#{$i} {
       @extend %grid;
-      width: round(($j / $i) * 10000) / 10000;
-      *width: round(($j / $i) * 10000) / 10000;
+      width: round(($j / $i) * 10000) / 10000 * 100%;
+      *width: round(($j / $i) * 10000) / 10000 * 100%;
     }
+  }
+}
+
+$grid-precent: (10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
+
+@each $i in $grid-precent {
+  $precent: #{"p"}#{$i};
+  .col-#{$precent} {
+    @extend %grid;
+    width: $i/100 * 100%;
   }
 }

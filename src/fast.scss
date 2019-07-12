@@ -1,4 +1,7 @@
 @import "./base/normalize.scss";
-@import "./base/display.scss";
-@import "./grids/grid.scss";
-// @import "./grids/grid-responsive.scss";
+@import "./base/base.scss";
+@import "./grids/grids.scss";
+@import "./buttons/buttons.scss";
+@import "./forms/form.scss";
+@import "./tables/tables.scss";
+@import "./card/card.scss";
